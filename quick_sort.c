@@ -19,30 +19,32 @@ void swap(int *a, int *b)
  * @array: Array to be partitioned.
  * @low: Index of the first element.
  * @high: Index of the last element.
- * @size: The size of the array.
  *
  * Return: Index of the pivot element after partitioning.
  */
 int partition(int *array, int low, int high, size_t size)
 {
-	int pivot = array[high];
-	int left = low - 1;
-	int current;
+    int pivot = array[high];
+    int left = low - 1;
+    int current;
 
-	for (current = low; current <= high; current++)
-	{
-		if (array[current] <= pivot)
-		{
-			left++;
+    for (current = low; current <= high; current++)
+    {
+        if (array[current] <= pivot)
+        {
+            left++;
 
-			if (left != current)
-			{
-				swap(&array[left], &array[current]);
-				print_array(array, size);
-			}
-		}
-	}
-	return (left);
+	    if (left != current)
+	    {
+		    swap(&array[left], &array[current]);
+		    print_array(array, size);
+	    }
+        }
+    }
+    /*swap(&array[left + 1], &array[high]);*/
+    /*print_array(array, size);*/
+
+    return (left);
 }
 
 /**
@@ -50,7 +52,6 @@ int partition(int *array, int low, int high, size_t size)
  * @array: Array to be sorted.
  * @low: Index of the first element.
  * @high: Index of the last element.
- * @size: The size of the array.
  *
  * Return: Void
  */

@@ -15,7 +15,7 @@ void shell_sort(int *array, size_t size)
 	int temp;
 	size_t current_idx, insert_idx;
 
-	if (array == NULL || size == 0)
+	if (array == NULL || size < 2)
 		return;
 
 	while (gap < size / 3)
